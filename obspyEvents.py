@@ -25,7 +25,7 @@ class ObspyEvents :
         self.iris = irisClient()
         
         #self.arclink = arcClient(host="seisrequest.iag.usp.br", port=18001, user="ObsPy POET")
-        self.arclink = arcClient(host="10.110.1.132", port=18001, user="ObsPy POET")
+        self.arclink = arcClient(host="seisrequest.iag.usp.br", port=18001, user="ObsPy POET")
 
         try:
 
@@ -201,7 +201,7 @@ class ObspyEvents :
                     
                     #delta = taup.locations2degrees(evtLat, evtLon, staLat, staLon) # delta stores distance in degrees
                     delta = util.locations2degrees(evtLat, evtLon, staLat, staLon) # delta stores distance in degrees
-                    itp = IagTaup() # calling IAG Taup class 
+                    itp = taup() # calling IAG Taup class 
                     itp.getTravelTimes(delta, evtDep)
                     pTime = itp.P()
                     sTime = itp.S()
